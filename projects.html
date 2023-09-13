@@ -7,20 +7,211 @@
   <title>Keval Kant - Projects</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    p {
+      font-size: larger;
+    }
+
+    .mybox {
+      padding: 0px 30px 0px 80px;
+    }
+
+    .skill {
+
+      transition: transform .1s;
+    }
+
+    .skill>span>img {
+      height: 50px;
+    }
+
+    .skill:hover {
+      transform: scale(1.5);
+    }
+
+    .social>a {
+      text-decoration: none;
+      padding-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .mybox {
+        padding: 20px;
+      }
+    }
+
+    label {
+      width: 80px;
+      height: 40px;
+      position: relative;
+      display: block;
+      background: #ebebeb;
+      border-radius: 25px;
+      box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+    }
+
+    label:after {
+      content: "";
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background: linear-gradient(180deg, #ffcc89, #d8860b);
+      border-radius: 50px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    input[name="darkmode"] {
+      width: 0;
+      height: 0;
+      visibility: hidden;
+    }
+
+    input[name="darkmode"]:checked+label {
+      background: #242424;
+    }
+
+    input[name="darkmode"]:checked+label:after {
+      left: 75px;
+      transform: translateX(-100%);
+      background: linear-gradient(180deg, #777, #3a3a3a);
+    }
+
+    label,
+    label:after {
+      transition: 0.3s
+    }
+
+    label svg {
+      position: absolute;
+      width: 22px;
+      top: 8px;
+      z-index: 100;
+    }
+
+    label svg.sun {
+      left: 9px;
+      fill: #fff;
+      transition: 0.3s;
+    }
+
+    label svg.moon {
+      left: 50px;
+      fill: #7e7e7e;
+      transition: 0.3s;
+    }
+
+    input[name="darkmode"]:checked+label svg.sun {
+      fill: #7e7e7e;
+    }
+
+    input[name="darkmode"]:checked+label svg.moon {
+      fill: #fff;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .navbar-toggler,
+    .navbar-toggler:focus {
+      border: 2px solid black;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .dark,
+    .dark a,
+    .dark strong,
+    .dark .card,
+    .dark .offcanvas,
+    .dark .icon,
+    .dark svg .dark .offcanvas .navbar-nav .nav-link.active,
+    .navbar-nav .show>.nav-link,
+    .dark .navbar-nav .nav-link.active,
+    .navbar-nav .show>.nav-link {
+      background-color: #1b1b1b;
+      color: white;
+      fill: white;
+    }
+
+    .dark .navbar-toggler {
+      border-color: white;
+    }
+  </style>
 </head>
 
 <body>
   <nav class="navbar fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Projects</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <a class="navbar-brand fw-bold" href="#">Projects</a>
+      <div class="d-flex">
+        <input type="checkbox" name="darkmode" id="darkmode">
+        <label for="darkmode">
+          <svg version="1.1" class="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
+
+            <rect x="152.994" y="58.921" transform="matrix(0.3827 0.9239 -0.9239 0.3827 168.6176 -118.5145)"
+              width="40.001" height="16" />
+            <rect x="46.9" y="164.979" transform="matrix(0.9239 0.3827 -0.3827 0.9239 71.29 -12.4346)" width="40.001"
+              height="16" />
+            <rect x="46.947" y="315.048" transform="matrix(0.9239 -0.3827 0.3827 0.9239 -118.531 50.2116)"
+              width="40.001" height="16" />
+
+            <rect x="164.966" y="409.112" transform="matrix(-0.9238 -0.3828 0.3828 -0.9238 168.4872 891.7491)"
+              width="16" height="39.999" />
+
+            <rect x="303.031" y="421.036" transform="matrix(-0.3827 -0.9239 0.9239 -0.3827 50.2758 891.6655)"
+              width="40.001" height="16" />
+
+            <rect x="409.088" y="315.018" transform="matrix(-0.9239 -0.3827 0.3827 -0.9239 701.898 785.6559)"
+              width="40.001" height="16" />
+
+            <rect x="409.054" y="165.011" transform="matrix(-0.9239 0.3827 -0.3827 -0.9239 891.6585 168.6574)"
+              width="40.001" height="16" />
+            <rect x="315.001" y="46.895" transform="matrix(0.9238 0.3828 -0.3828 0.9238 50.212 -118.5529)" width="16"
+              height="39.999" />
+            <path d="M248,88c-88.224,0-160,71.776-160,160s71.776,160,160,160s160-71.776,160-160S336.224,88,248,88z M248,392
+				c-79.4,0-144-64.6-144-144s64.6-144,144-144s144,64.6,144,144S327.4,392,248,392z" />
+            <rect x="240" width="16" height="72" />
+            <rect x="62.097" y="90.096" transform="matrix(0.7071 0.7071 -0.7071 0.7071 98.0963 -40.6334)" width="71.999"
+              height="16" />
+            <rect y="240" width="72" height="16" />
+
+            <rect x="90.091" y="361.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -113.9157 748.643)" width="16"
+              height="71.999" />
+            <rect x="240" y="424" width="16" height="72" />
+
+            <rect x="361.881" y="389.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 397.8562 960.6281)"
+              width="71.999" height="16" />
+            <rect x="424" y="240" width="72" height="16" />
+            <rect x="389.911" y="62.091" transform="matrix(0.7071 0.7071 -0.7071 0.7071 185.9067 -252.6357)" width="16"
+              height="71.999" />
+          </svg>
+          <svg version="1.1" class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 49.739 49.739" style="enable-background:new 0 0 49.739 49.739;"
+            xml:space="preserve">
+            <path d="M25.068,48.889c-9.173,0-18.017-5.06-22.396-13.804C-3.373,23.008,1.164,8.467,13.003,1.979l2.061-1.129l-0.615,2.268
+       c-1.479,5.459-0.899,11.25,1.633,16.306c2.75,5.493,7.476,9.587,13.305,11.526c5.831,1.939,12.065,1.492,17.559-1.258v0
+       c0.25-0.125,0.492-0.258,0.734-0.391l2.061-1.13l-0.585,2.252c-1.863,6.873-6.577,12.639-12.933,15.822
+       C32.639,48.039,28.825,48.888,25.068,48.889z M12.002,4.936c-9.413,6.428-12.756,18.837-7.54,29.253
+       c5.678,11.34,19.522,15.945,30.864,10.268c5.154-2.582,9.136-7.012,11.181-12.357c-5.632,2.427-11.882,2.702-17.752,0.748
+       c-6.337-2.108-11.473-6.557-14.463-12.528C11.899,15.541,11.11,10.16,12.002,4.936z" />
+          </svg>
+        </label>
+        <button class="navbar-toggler ms-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar">
+          <span class="icon">&#9776;</span>
+        </button>
+      </div>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close"><span
+              class="icon">&#10006;</span></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -136,12 +327,12 @@
             August, 2022
           </p>
           <p>
-            <p>
-              <strong>Project URL:</strong>
-              <a href="https://cruzmedika.com">https://cruzmedika.com</a>
-            </p>
-            <strong>Description:</strong>
-            A chatbot for the support page of the website.
+          <p>
+            <strong>Project URL:</strong>
+            <a href="https://cruzmedika.com">https://cruzmedika.com</a>
+          </p>
+          <strong>Description:</strong>
+          A chatbot for the support page of the website.
           </p>
           <p><strong>Features:</strong></p>
           <ul>
@@ -172,12 +363,12 @@
             August, 2022
           </p>
           <p>
-            <p>
-              <strong>Project URL:</strong>
-              <a href="https://aquila.labnify.com/">https://aquila.labnify.com/</a>
-            </p>
-            <strong>Description:</strong>
-            Generate AI-written content with a touch of human emotion
+          <p>
+            <strong>Project URL:</strong>
+            <a href="https://aquila.labnify.com/">https://aquila.labnify.com/</a>
+          </p>
+          <strong>Description:</strong>
+          Generate AI-written content with a touch of human emotion
           </p>
           <p><strong>Features:</strong></p>
           <ul>
@@ -207,11 +398,6 @@
             <strong>Project date:</strong>
             December, 2020
           </p>
-
-          <!-- <p>
-            <strong>Project URL:</strong>
-            <a href="https://www.sick-leads.de/">www.sick-leads.de</a>
-          </p> -->
           <p>
             <strong>Description:</strong>
             The project Sick Leads helps you find, engage and convert new customers online. It's your companion that
@@ -247,11 +433,6 @@
             <strong>Project date:</strong>
             January, 2021
           </p>
-
-          <!-- <p>
-            <strong>Project URL:</strong>
-            <a href="https://eshop-1025.herokuapp.com/">eshop-1025.herokuapp.com</a>
-          </p> -->
           <p>
             <strong>Description:</strong>
             Django based Ecommerce project which let us buy various Men/Women fashion cloths.
@@ -313,16 +494,10 @@
             <strong>Category:</strong>
             SEO tool Django Project
           </p>
-
           <p>
             <strong>Project date:</strong>
             Decmber, 2021
           </p>
-
-          <!-- <p>
-            <strong>Project URL:</strong>
-            <a href="https://keywordhero.herokuapp.com/">keywordhero.herokuapp.com</a>
-          </p> -->
           <p>
             <strong>Description:</strong>
             SEO tool based on python/django. This project let us find keywords info in bulk using google api.
@@ -378,6 +553,40 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
+  <script>
+    var theme = localStorage.getItem("theme");
+    if (theme) {
+      if (theme == "dark") {
+        document.body.classList.add("dark")
+      }
+      else {
+        document.body.classList.remove("dark")
+      }
+    }
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add("dark")
+        document.getElementById("darkmode").setAttribute("checked", true);
+      }
+      else {
+        document.body.classList.remove("dark")
+      }
+    }
+    if (theme == "dark") {
+      document.getElementById("darkmode").setAttribute("checked", true);
+    }
+    const checkbox = document.getElementById('darkmode');
+    checkbox.addEventListener('change', (event) => {
+      if (event.currentTarget.checked) {
+        localStorage.setItem("theme", "dark");
+        document.body.classList.add("dark")
+      } else {
+        localStorage.setItem("theme", "light");
+        document.body.classList.remove("dark")
+      }
+    })
+
+  </script>
 </body>
 
 </html>
