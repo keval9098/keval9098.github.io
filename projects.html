@@ -583,8 +583,15 @@
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
   <script>
-    if (theme == "dark") {
-      document.getElementById("darkmode").setAttribute("checked", true);
+    if (theme){
+      if (theme == "dark"){
+        document.getElementById("darkmode").setAttribute("checked", true);
+      }
+    }
+    else{
+      if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.getElementById("darkmode").setAttribute("checked", true);
+      }
     }
     const checkbox = document.getElementById('darkmode');
     checkbox.addEventListener('change', (event) => {
