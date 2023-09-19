@@ -116,7 +116,7 @@
     }
 
     a {
-      color: #000;
+      color: blue;
       text-decoration: none;
     }
 
@@ -146,8 +146,9 @@
     .dark .navbar-toggler {
       border-color: white;
     }
+
     .dark a:hover,
-    .dark a:focus{
+    .dark a:focus {
       color: rgb(131, 131, 131);
     }
   </style>
@@ -260,13 +261,135 @@
   </nav>
   <br><br>
   <div class="container">
-    <br>
-    <h2>1. Himachal Study</h2>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0 d-flex justify-content-center">
+            <img id="modalimg" src="" class="img-fluid mb-3" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>1. Netapp autoreport tool</h2>
     <br>
     <div class="card p-4">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/himachal.png" class="img-fluid" alt="">
+          <img onclick="changeimg('netapp.png')" src="projects/netapp.png" class="img-fluid mb-3" alt="">
+          <img  onclick="changeimg('netapp2.png')" src="projects/netapp2.png" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-8">
+          <p>
+            <strong>Category:</strong>
+            Automation Django project
+          </p>
+
+          <p>
+            <strong>Project date:</strong>
+            25 November, 2022
+          </p>
+          <p>
+            <strong>Description:</strong>
+            This project is built for automation of report generation for the internal use of Netapp company. This tool let company engineers 
+            enter various form of SQL like queries for their Burt software in a table like structure and then fetch results and display result on tool and also sends an Email.
+
+          </p>
+          <p><strong>Client:</strong> <a target="_blank" href="https://www.netapp.com/">Netapp company</a></p>
+          <p><strong>Features:</strong></p>
+          <ul>
+            <li>Generate new reports</li>
+            <li>Trigger reports</li>
+            <li>Create reports from already built templates</li>
+            <li>Three types of reports - Burt , Jira and Qtest</li>
+            <li>Format the output of queries in form of table</li>
+            <li>Check for pending tasks in results and send mail to those users.</li>
+            <li>Used celery for background report generation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h2>2. Dart automation</h2>
+    <br>
+    <div class="card p-4">
+      <div class="row">
+        <div class="col-md-4">
+          <img  onclick="changeimg('dart.png')" src="projects/dart.png" class="img-fluid mb-3" alt="">
+        </div>
+        <div class="col-md-8">
+          <p>
+            <strong>Category:</strong>
+            Automation Django project
+          </p>
+
+          <p>
+            <strong>Project date:</strong>
+            4 April, 2023
+          </p>
+          <p>
+            <strong>Description:</strong>
+            This project is also an automation project for internal use of Netapp company which let engineers perform various test on their hardware infrastructure like Virtual machines.
+            This project let users enter the various details of the test case using forms and then it perform the test in background using python celery.
+          </p>
+          <p><strong>Client:</strong> <a target="_blank" href="https://www.netapp.com/">Netapp company</a></p>
+          <p><strong>Features:</strong></p>
+          <ul>
+            <li>7 types of test cases</li>
+            <li>Trigger test case</li>
+            <li>Shows results and logs of performed test cases</li>
+            <li>Have option to cancel task at any time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h2>3. Sales report tool</h2>
+    <br>
+    <div class="card p-4">
+      <div class="row">
+        <div class="col-md-4">
+          <img  onclick="changeimg('sales.png')" src="projects/sales.png" class="img-fluid mb-2" alt="">
+          <img  onclick="changeimg('sales2.png')" src="projects/sales2.png" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-8">
+          <p>
+            <strong>Category:</strong>
+            Analytics Dashboard
+          </p>
+
+          <p>
+            <strong>Project date:</strong>
+            7 July, 2023
+          </p>
+          <p>
+            <strong>Description:</strong>
+            This project is an Analytics Dashboard of sales for the South African firm. Previously client was managing and generating insights using Microsoft excel, but now this tool let client generate 
+            or filter sales data according to various parameters. 
+          </p>
+          <p><strong>Features:</strong></p>
+          <ul>
+            <li>Project language is French</li>
+            <li>Dashboard</li>
+            <li>Generate report monthly</li>
+            <li>Generate report according to product family</li>
+            <li>Generate report according to product</li>
+            <li>Catalog section for sending quote to client using email</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h2>4. Himachal Study</h2>
+    <br>
+    <div class="card p-4">
+      <div class="row">
+        <div class="col-md-4">
+          <img  onclick="changeimg('himachal.png')" src="projects/himachal.png" class="img-fluid mb-2" alt="">
+          <img  onclick="changeimg('quiz.png')" src="projects/quiz.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -281,7 +404,7 @@
 
           <p>
             <strong>Project URL:</strong>
-            <a href="https://himachalstudy.com/">www.himachalstudy.com</a>
+            <a target="_blank" href="https://himachalstudy.com/">www.himachalstudy.com</a>
           </p>
           <p>
             <strong>Description:</strong>
@@ -301,12 +424,12 @@
       </div>
     </div>
     <br>
-    <h2>2. Hornbet Finance</h2>
+    <h2>5. Hornbet Finance</h2>
     <br>
     <div class="card p-4">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/hornbet.png" class="img-fluid" alt="">
+          <img  onclick="changeimg('hornbet.png')" src="projects/hornbet.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -321,7 +444,7 @@
 
           <p>
             <strong>Project URL:</strong>
-            <a href="https://hornbetfinance.com/">hornbetfinance.com</a>
+            <a target="_blank" href="https://hornbetfinance.com/">hornbetfinance.com</a>
           </p>
           <p>
             <strong>Description:</strong>
@@ -338,12 +461,12 @@
       </div>
     </div>
     <br>
-    <h2>3. Cruzmedika website</h2>
+    <h2>6. Cruzmedika website</h2>
     <br>
     <div class="card p-3">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/dalia.png" class="img-fluid" alt="">
+          <img  onclick="changeimg('dalia.png')" src="projects/dalia.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -358,7 +481,7 @@
           <p>
           <p>
             <strong>Project URL:</strong>
-            <a href="https://cruzmedika.com">https://cruzmedika.com</a>
+            <a target="_blank" href="https://cruzmedika.com">https://cruzmedika.com</a>
           </p>
           <strong>Description:</strong>
           A chatbot for the support page of the website.
@@ -374,12 +497,12 @@
       </div>
     </div>
     <br>
-    <h2>4. Aquila website</h2>
+    <h2>7. Aquila website</h2>
     <br>
     <div class="card p-3">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/aquila.png" class="img-fluid" alt="">
+          <img  onclick="changeimg('aquila.png')" src="projects/aquila.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -394,7 +517,7 @@
           <p>
           <p>
             <strong>Project URL:</strong>
-            <a href="https://aquila.labnify.com/">https://aquila.labnify.com/</a>
+            <a target="_blank" href="https://aquila.labnify.com/">https://aquila.labnify.com/</a>
           </p>
           <strong>Description:</strong>
           Generate AI-written content with a touch of human emotion
@@ -410,12 +533,12 @@
       </div>
     </div>
     <br>
-    <h2>5. Sick Leads</h2>
+    <h2>8. Sick Leads</h2>
     <br>
     <div class="card p-3">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/sickleads.png" class="img-fluid" alt="">
+          <img  onclick="changeimg('sickleads.png')" src="projects/sickleads.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -445,12 +568,12 @@
       </div>
     </div>
     <br>
-    <h2>6. Eshop</h2>
+    <h2>9. Eshop</h2>
     <br>
     <div class="card p-3">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/eshop.png" class="img-fluid" alt="">
+          <img  onclick="changeimg('eshop.png')" src="projects/eshop.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -478,12 +601,12 @@
       </div>
     </div>
     <br>
-    <h2>7. Fitness Gym</h2>
+    <h2>10. Fitness Gym</h2>
     <br>
     <div class="card p-3">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/gym.png" class="img-fluid" alt="">
+          <img  onclick="changeimg('gym.png')" src="projects/gym.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -511,12 +634,12 @@
       </div>
     </div>
     <br>
-    <h2>8. Keyword Hero</h2>
+    <h2>11. Keyword Hero</h2>
     <br>
     <div class="card p-3">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/keywordhero.png" class="img-fluid" alt="">
+          <img  onclick="changeimg('keywordhero.png')" src="projects/keywordhero.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -540,12 +663,12 @@
       </div>
     </div>
     <br>
-    <h2>9. Seed Crm</h2>
+    <h2>12. Seed Crm</h2>
     <br>
     <div class="card p-3">
       <div class="row">
         <div class="col-md-4">
-          <img src="projects/seed.png" class="img-fluid" alt="">
+          <img  onclick="changeimg('seed.png')" src="projects/seed.png" class="img-fluid" alt="">
         </div>
         <div class="col-md-8">
           <p>
@@ -560,7 +683,7 @@
 
           <p>
             <strong>Project URL:</strong>
-            <a href="https://crm.seedmgl.com/">crm.seedmgl.com</a>
+            <a target="_blank" href="https://crm.seedmgl.com/">crm.seedmgl.com</a>
           </p>
           <p>
             <strong>Description:</strong>
@@ -583,13 +706,13 @@
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
   <script>
-    if (theme){
-      if (theme == "dark"){
+    if (theme) {
+      if (theme == "dark") {
         document.getElementById("darkmode").setAttribute("checked", true);
       }
     }
-    else{
-      if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.getElementById("darkmode").setAttribute("checked", true);
       }
     }
@@ -603,6 +726,12 @@
         document.documentElement.classList.remove("dark")
       }
     })
+    function changeimg(img){
+      console.log("clicked")
+      document.getElementById("modalimg").src = "projects/"+img
+      let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('exampleModal'))
+      modal.show();
+    }
 
   </script>
 </body>
