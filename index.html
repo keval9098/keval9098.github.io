@@ -158,8 +158,9 @@
     .dark .navbar-toggler {
       border-color: white;
     }
+
     .dark a:hover,
-    .dark a:focus{
+    .dark a:focus {
       color: rgb(131, 131, 131);
     }
   </style>
@@ -182,7 +183,6 @@
         document.documentElement.classList.remove("dark")
       }
     }
-
   </script>
 </head>
 
@@ -282,10 +282,12 @@
         <h3>About me</h3>
         <p> I am an engineering graduate passionate about web technologies with experties in python language.
         </p>
-        <p> Apart from being a web developer, I spend most of my time outdoors. I enjoy trekking, visiting hill stations, and cycling.</p>
+        <p> Apart from being a web developer, I spend most of my time outdoors. I enjoy trekking, visiting hill
+          stations, and cycling.</p>
       </div>
       <div class="col-md-4 d-flex my-5 justify-content-center">
-        <img src="images/keval.png" alt="keval kant" max-width="200px" height="200px" style="border-radius: 50%;   box-shadow: 0px 0px 100px 0px rgb(189, 193, 255); object-fit: contain;">
+        <img src="images/keval.png" alt="keval kant" max-width="200px" height="200px"
+          style="border-radius: 50%;   box-shadow: 0px 0px 100px 0px rgb(189, 193, 255); object-fit: contain;">
       </div>
       <div class="col-md-4 mybox">
         <h3>Details</h3>
@@ -327,7 +329,6 @@
             </svg>
           </a>
         </div>
-
         </p>
       </div>
     </div>
@@ -382,23 +383,20 @@
           </span>
         </a>
       </div>
-
-
     </div>
-
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
   <script>
-    if (theme){
-      if (theme == "dark"){
+    if (theme) {
+      if (theme == "dark") {
         document.getElementById("darkmode").setAttribute("checked", true);
       }
     }
-    else{
-      if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.getElementById("darkmode").setAttribute("checked", true);
       }
     }
