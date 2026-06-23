@@ -189,7 +189,20 @@
 <body>
   <nav class="navbar fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#">Profile</a>
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand fw-bold" href="index.html">Keval Kant</a>
+        <ul class="navbar-nav flex-row d-none d-md-flex ms-4 gap-4">
+          <li class="nav-item">
+            <a class="nav-link active fw-bold" aria-current="page" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="resume.html">Resume</a>
+          </li>
+        </ul>
+      </div>
       <div class="d-flex">
         <input type="checkbox" name="darkmode" id="darkmode">
         <label for="darkmode">
@@ -244,7 +257,7 @@
        c-6.337-2.108-11.473-6.557-14.463-12.528C11.899,15.541,11.11,10.16,12.002,4.936z" />
           </svg>
         </label>
-        <button class="navbar-toggler ms-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        <button class="navbar-toggler ms-5 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar">
           <span class="icon">&#9776;</span>
         </button>
