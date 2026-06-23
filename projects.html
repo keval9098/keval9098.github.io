@@ -7,6 +7,9 @@
   <title>Keval Kant - Projects</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="images/keval.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <style>
     .nav-link {
       font-size: x-large;
@@ -151,6 +154,207 @@
     .dark a:focus {
       color: rgb(131, 131, 131);
     }
+
+    /* ===== Projects page enhancements ===== */
+    html { scroll-behavior: smooth; }
+
+    a { color: #4a55a8; }
+    .dark a { color: #9ca5ff; }
+
+    .page-hero {
+      position: relative;
+      padding: 7rem 1rem 3rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page-hero::before,
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .page-hero::before {
+      width: 360px; height: 360px;
+      background: #bdc1ff;
+      top: -80px; left: -100px;
+    }
+
+    .page-hero::after {
+      width: 300px; height: 300px;
+      background: #ffd6a5;
+      bottom: -100px; right: -80px;
+    }
+
+    .dark .page-hero::before { background: #4a4ea8; opacity: 0.3; }
+    .dark .page-hero::after  { background: #8a5a1f; opacity: 0.25; }
+
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+    }
+
+    .page-hero .lead {
+      font-size: 1.1rem;
+      color: #5a5a5a;
+      max-width: 700px;
+      margin: 0.5rem auto 1.5rem;
+    }
+
+    .dark .page-hero .lead { color: #b0b0b0; }
+
+    .page-hero .eyebrow {
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      color: #4a55a8;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .dark .page-hero .eyebrow { color: #9ca5ff; }
+
+    .project-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f1f3ff;
+      color: #4a55a8;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .dark .project-count {
+      background: rgba(154, 165, 255, 0.1);
+      color: #9ca5ff;
+    }
+
+    /* Project cards */
+    .container > h2 {
+      font-weight: 700;
+      margin-top: 2.5rem;
+      position: relative;
+      padding-left: 1rem;
+      border-left: 4px solid #4a55a8;
+      line-height: 1.3;
+    }
+
+    .dark .container > h2 { border-left-color: #9ca5ff; }
+
+    .container > br { display: none; }
+
+    .card {
+      border: none !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: transform .2s ease, box-shadow .2s ease;
+      padding: 1.5rem !important;
+      margin-bottom: 2rem;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    }
+
+    .dark .card {
+      background: #232323 !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .card .col-md-4 img {
+      border-radius: 12px;
+      cursor: zoom-in;
+      transition: transform .15s ease, box-shadow .15s ease;
+      width: 100%;
+    }
+
+    .card .col-md-4 img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card p strong {
+      color: #4a55a8;
+      margin-right: 0.4rem;
+    }
+
+    .dark .card p strong { color: #9ca5ff; }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #4a55a8;
+      font-weight: 700;
+    }
+
+    .dark .card ul li::before { color: #9ca5ff; }
+
+    .modal-content {
+      border-radius: 16px;
+      border: none;
+    }
+
+    .dark .modal-content { background: #232323; }
+
+    /* Footer */
+    footer.site-footer {
+      margin-top: 4rem;
+      padding: 2.5rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .dark footer.site-footer { border-top-color: rgba(255,255,255,0.08); }
+
+    footer.site-footer .social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin: 0 0.25rem;
+      background: rgba(74, 85, 168, 0.08);
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    footer.site-footer .social a i {
+      font-size: 1.2rem;
+      color: #4a55a8;
+    }
+
+    footer.site-footer .social a:hover {
+      background: rgba(74, 85, 168, 0.18);
+      transform: translateY(-2px);
+    }
+
+    .dark footer.site-footer .social a { background: rgba(154, 165, 255, 0.1); }
+    .dark footer.site-footer .social a i { color: #9ca5ff; }
+
+    @media (max-width: 768px) {
+      .page-hero { padding: 6rem 1rem 2rem; }
+      .card .col-md-4 img { margin-bottom: 1rem; }
+    }
   </style>
   <script>
     var theme = localStorage.getItem("theme");
@@ -272,7 +476,19 @@
       </div>
     </div>
   </nav>
-  <br><br>
+  <header class="page-hero">
+    <div class="container">
+      <p class="eyebrow mb-2" data-aos="fade-down">My Work</p>
+      <h1 data-aos="fade-up">Projects</h1>
+      <p class="lead" data-aos="fade-up" data-aos-delay="100">
+        A collection of work I've built &mdash; from internal automation tools and analytics
+        dashboards to e-commerce, CRMs, and AI-powered apps.
+      </p>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <span class="project-count"><i class="bi bi-collection"></i> 12 projects</span>
+      </div>
+    </div>
+  </header>
   <div class="container">
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -720,6 +936,18 @@
 
   </div>
 
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social mb-3">
+        <a href="https://github.com/keval9098" aria-label="GitHub" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/kevalkant9098/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.facebook.com/keval.kant/" aria-label="Facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/sharmakeval/" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+      </div>
+      <p class="mb-0">&copy; <span id="year"></span> Keval Kant. Built with care.</p>
+    </div>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
@@ -751,6 +979,15 @@
       modal.show();
     }
 
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.querySelectorAll('.container > .card').forEach((el, i) => {
+      el.setAttribute('data-aos', 'fade-up');
+      el.setAttribute('data-aos-offset', '60');
+    });
+    AOS.init({ duration: 600, once: true, offset: 60 });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 

@@ -7,6 +7,9 @@
     <title>Keval Kant - Resume</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="images/keval.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <style>
         .nav-link {
             font-size: x-large;
@@ -247,6 +250,277 @@
             border: 4px solid #8287ba;
             transform: scale(1.3);
         }
+
+        /* ===== Resume page enhancements ===== */
+        html { scroll-behavior: smooth; }
+        a { color: #4a55a8; }
+        .dark a { color: #9ca5ff; }
+
+        body {
+            background: linear-gradient(to bottom, #f1f1ff, #ffffff);
+        }
+        html.dark body { background: #1b1b1b; }
+
+        .page-hero {
+            position: relative;
+            padding: 7rem 1rem 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        .page-hero::before,
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.4;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .page-hero::before {
+            width: 360px; height: 360px;
+            background: #bdc1ff;
+            top: -80px; left: -100px;
+        }
+        .page-hero::after {
+            width: 300px; height: 300px;
+            background: #ffd6a5;
+            bottom: -100px; right: -80px;
+        }
+        .dark .page-hero::before { background: #4a4ea8; opacity: 0.3; }
+        .dark .page-hero::after  { background: #8a5a1f; opacity: 0.25; }
+        .page-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+        }
+        .page-hero .lead {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            max-width: 700px;
+            margin: 0.5rem auto 0;
+        }
+        .dark .page-hero .lead { color: #b0b0b0; }
+        .page-hero .eyebrow {
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: #4a55a8;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .dark .page-hero .eyebrow { color: #9ca5ff; }
+
+        .info-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .dark .info-card {
+            background: #232323;
+            border-color: rgba(255,255,255,0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .profile-hero {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(189,193,255,0.6);
+            box-shadow: 0 10px 30px rgba(74,85,168,0.25);
+        }
+        .dark .profile-hero {
+            border-color: rgba(154,165,255,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .role-tag {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        .dark .role-tag { color: #aaa; }
+
+        .small-intro {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .dark .small-intro { color: #ccc; }
+        .small-intro .accent { color: #4a55a8; }
+        .dark .small-intro .accent { color: #9ca5ff; }
+
+        .quick-facts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            justify-content: center;
+        }
+        .fact-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.7rem;
+            background: #f1f3ff;
+            color: #4a55a8;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .dark .fact-chip {
+            background: rgba(154,165,255,0.1);
+            color: #9ca5ff;
+        }
+
+        .picker-label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+        .color-name {
+            margin-left: auto;
+            font-size: 0.8rem;
+            text-transform: capitalize;
+            color: #777;
+            font-weight: 500;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(0,0,0,0.04);
+        }
+        .dark .color-name { color: #aaa; background: rgba(255,255,255,0.06); }
+
+        .info-card .color-selector {
+            gap: 8px;
+            margin-bottom: 0;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        .info-card .color-dot {
+            width: 32px;
+            height: 32px;
+        }
+        .info-card .color-selector input[type="radio"]:checked+.color-dot {
+            border: 3px solid #4a55a8;
+            transform: scale(1.15);
+        }
+        .dark .info-card .color-selector input[type="radio"]:checked+.color-dot {
+            border-color: #9ca5ff;
+        }
+
+        .btn-cta {
+            border-radius: 999px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+            border: 2px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .btn-cta-primary {
+            background: #4a55a8;
+            color: #fff !important;
+        }
+        .btn-cta-primary:hover {
+            background: #3a4490;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(74,85,168,0.3);
+        }
+        .btn-cta-outline {
+            background: transparent;
+            border-color: currentColor;
+            color: inherit !important;
+        }
+        .btn-cta-outline:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .iframe-wrap {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        .dark .iframe-wrap { background: #232323; box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
+        .iframe-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: #f5f6fc;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.85rem;
+        }
+        .dark .iframe-toolbar {
+            background: #1c1c1c;
+            border-bottom-color: rgba(255,255,255,0.06);
+        }
+        .iframe-toolbar .dot {
+            width: 11px; height: 11px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-red { background: #ff5f57; }
+        .dot-amber { background: #ffbd2e; }
+        .dot-green { background: #28c940; }
+        .toolbar-label { color: #888; }
+        .dark .toolbar-label { color: #999; }
+        .toolbar-link {
+            color: #4a55a8;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .dark .toolbar-link { color: #9ca5ff; }
+        .toolbar-link:hover { text-decoration: underline; }
+        .iframe-wrap iframe {
+            display: block;
+            width: 100%;
+            height: min(80vh, 900px);
+            border: none;
+            background: #fff;
+        }
+
+        footer.site-footer {
+            margin-top: 3rem;
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .dark footer.site-footer { border-top-color: rgba(255,255,255,0.08); }
+        footer.site-footer .social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            margin: 0 0.25rem;
+            background: rgba(74,85,168,0.08);
+            transition: transform .15s ease, background .15s ease;
+        }
+        footer.site-footer .social a i {
+            font-size: 1.2rem;
+            color: #4a55a8;
+        }
+        footer.site-footer .social a:hover {
+            background: rgba(74,85,168,0.18);
+            transform: translateY(-2px);
+        }
+        .dark footer.site-footer .social a { background: rgba(154,165,255,0.1); }
+        .dark footer.site-footer .social a i { color: #9ca5ff; }
+
+        @media (max-width: 992px) {
+            .iframe-wrap iframe { height: 70vh; }
+            .page-hero { padding: 6rem 1rem 1rem; }
+        }
     </style>
     <script>
         var theme = localStorage.getItem("theme");
@@ -376,69 +650,103 @@
             </div>
         </div>
     </nav>
-    <br><br>
+    <header class="page-hero">
+        <div class="container">
+            <p class="eyebrow mb-2" data-aos="fade-down">Quick Look</p>
+            <h1 data-aos="fade-up">Resume</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                A snapshot of my journey, skills, and experience. Try the color themes,
+                print it, or open it standalone.
+            </p>
+        </div>
+    </header>
+
     <div class="container">
-        <div class="row">
-            <div class="col-md py-3 mt-2">
-                <div class="d-flex mb-3 justify-content-center">
-                    <img src="images/keval.png" class="profile" alt="">
-                </div>
-                <p>You made it to the resume page — <b style="color: red;">congratulations</b>, that's already an
-                    excellent decision! Thank you
-                    for showing interest in my journey and skills. I poured a good amount of <b
-                        style="color: brown;">&#9749; caffeine</b>, <b>&#128540; curiosity</b>, and
-                    creative chaos into every line. Feel free to reach out if my resume resonates, or even just to say
-                    hi!
-                </p>
-                <p class="text-center fw-bold">Select different color</p>
-                <div class="color-selector d-flex justify-content-center">
-                    <label>
-                        <input type="radio" name="theme" value="green" checked>
-                        <span class="color-dot" style="background-color: rgb(19, 116, 10);"></span>
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="blue">
-                        <span class="color-dot" style="background-color: rgb(10, 58, 116);"></span>
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="red">
-                        <span class="color-dot" style="background-color: rgb(156, 0, 0);"></span>
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="purple">
-                        <span class="color-dot" style="background-color: rgb(102, 51, 153);"></span>
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="teal">
-                        <span class="color-dot" style="background-color: rgb(0, 128, 128);"></span>
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="orange">
-                        <span class="color-dot" style="background-color: rgb(255, 85, 0);"></span>
-                    </label>
+        <div class="row g-4">
+            <div class="col-lg-4" data-aos="fade-right">
+                <div class="info-card">
+                    <div class="text-center mb-3">
+                        <img src="images/keval.png" class="profile-hero" alt="Keval Kant">
+                    </div>
+                    <h3 class="text-center fw-bold mb-1">Keval Kant</h3>
+                    <p class="text-center role-tag mb-3">Python Developer &middot; DevOps</p>
 
-                </div>
-                <p class="text-center fw-bold">Print my resume</p>
-                <div class="d-flex justify-content-center">
-                    <a onclick="printIframeContent()" class="download-btn" download>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M3 14.5a1.5 1.5 0 011.5-1.5H6v-4a1 1 0 112 0v4h2v-4a1 1 0 112 0v4h1.5a1.5 1.5 0 010 3h-9a1.5 1.5 0 01-1.5-1.5zM10 12l4-4H6l4 4z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        Print resume
-                    </a>
-                </div>
+                    <p class="small-intro">
+                        You made it to the resume page &mdash;
+                        <strong class="accent">congratulations</strong>, that's already an excellent decision!
+                        Thank you for showing interest in my journey and skills. I poured a good amount of
+                        <strong>&#9749; caffeine</strong>, <strong>&#128540; curiosity</strong>, and creative chaos
+                        into every line. Feel free to reach out if my resume resonates, or even just to say hi!
+                    </p>
 
+                    <div class="quick-facts mb-4">
+                        <span class="fact-chip"><i class="bi bi-briefcase"></i> 5+ yrs experience</span>
+                        <span class="fact-chip"><i class="bi bi-code-slash"></i> Python &middot; Django</span>
+                        <span class="fact-chip"><i class="bi bi-check-circle"></i> Open to work</span>
+                    </div>
 
+                    <div class="mb-4">
+                        <p class="picker-label mb-2">
+                            <i class="bi bi-palette"></i> Resume color
+                            <span class="color-name" id="colorName">green</span>
+                        </p>
+                        <div class="color-selector d-flex">
+                            <label><input type="radio" name="theme" value="green" checked><span class="color-dot" style="background-color: rgb(19, 116, 10);"></span></label>
+                            <label><input type="radio" name="theme" value="blue"><span class="color-dot" style="background-color: rgb(10, 58, 116);"></span></label>
+                            <label><input type="radio" name="theme" value="red"><span class="color-dot" style="background-color: rgb(156, 0, 0);"></span></label>
+                            <label><input type="radio" name="theme" value="purple"><span class="color-dot" style="background-color: rgb(102, 51, 153);"></span></label>
+                            <label><input type="radio" name="theme" value="teal"><span class="color-dot" style="background-color: rgb(0, 128, 128);"></span></label>
+                            <label><input type="radio" name="theme" value="orange"><span class="color-dot" style="background-color: rgb(255, 85, 0);"></span></label>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <a onclick="printIframeContent()" class="btn-cta btn-cta-primary"><i class="bi bi-printer"></i> Print resume</a>
+                        <a onclick="printIframeContent()" class="btn-cta btn-cta-outline"><i class="bi bi-download"></i> Save as PDF</a>
+                        <a href="cv.html" target="_blank" rel="noopener" class="btn-cta btn-cta-outline"><i class="bi bi-box-arrow-up-right"></i> Open standalone</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-8 p-md-5 p-3">
-                <div class="p-md-3 cloud-emerge">
-                    <iframe id="myIframe" src="cv.html" frameborder="0" width="100%" height="550px"></iframe>
+
+            <div class="col-lg-8" data-aos="fade-left">
+                <div class="iframe-wrap">
+                    <div class="iframe-toolbar">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-amber"></span>
+                        <span class="dot dot-green"></span>
+                        <span class="toolbar-label ms-2">cv.html &mdash; preview</span>
+                        <a href="cv.html" target="_blank" rel="noopener" class="toolbar-link ms-auto" title="Open in new tab">
+                            <i class="bi bi-arrows-fullscreen"></i> Fullscreen
+                        </a>
+                    </div>
+                    <iframe id="myIframe" src="cv.html" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
+
+        <section class="my-5" data-aos="fade-up">
+            <div class="info-card text-center">
+                <h3 class="fw-bold mb-2">Want to talk?</h3>
+                <p class="mb-3">If my resume resonates, let's connect &mdash; I'd love to hear from you.</p>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <a href="mailto:kevalkant9098@gmail.com" class="btn-cta btn-cta-primary"><i class="bi bi-envelope"></i> Email me</a>
+                    <a href="https://www.linkedin.com/in/kevalkant9098/" target="_blank" rel="noopener" class="btn-cta btn-cta-outline"><i class="bi bi-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="social mb-3">
+                <a href="https://github.com/keval9098" aria-label="GitHub" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/kevalkant9098/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.facebook.com/keval.kant/" aria-label="Facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/sharmakeval/" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+            </div>
+            <p class="mb-0">&copy; <span id="year"></span> Keval Kant. Built with care.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -448,46 +756,45 @@
 
     <script>
         const themes = {
-            green: {
-                theme: "rgb(19, 116, 10)",
-                badge: "rgb(165, 232, 159)"
-            },
-            blue: {
-                theme: "rgb(10, 58, 116)",
-                badge: "rgb(159, 207, 232)"
-            },
-            red: {
-                theme: "rgb(156, 0, 0)",
-                badge: "rgb(255, 196, 196)"
-            },
-            purple: {
-                theme: "rgb(102, 51, 153)",
-                badge: "rgb(221, 200, 255)"
-            },
-            teal: {
-                theme: "rgb(0, 128, 128)",
-                badge: "rgb(178, 240, 240)"
-            },
-            orange: {
-                theme: "rgb(255, 85, 0)",
-                badge: "rgb(255, 214, 186)"
-            }
+            green:  { theme: "rgb(19, 116, 10)",   badge: "rgb(165, 232, 159)" },
+            blue:   { theme: "rgb(10, 58, 116)",   badge: "rgb(159, 207, 232)" },
+            red:    { theme: "rgb(156, 0, 0)",     badge: "rgb(255, 196, 196)" },
+            purple: { theme: "rgb(102, 51, 153)",  badge: "rgb(221, 200, 255)" },
+            teal:   { theme: "rgb(0, 128, 128)",   badge: "rgb(178, 240, 240)" },
+            orange: { theme: "rgb(255, 85, 0)",    badge: "rgb(255, 214, 186)" }
         };
 
+        const savedColor = localStorage.getItem('resumeColor') || 'green';
+        const savedRadio = document.querySelector(`input[name="theme"][value="${savedColor}"]`);
+        if (savedRadio) savedRadio.checked = true;
+        const colorNameEl = document.getElementById('colorName');
+        if (colorNameEl) colorNameEl.textContent = savedColor;
+
+        function applyResumeColor(name) {
+            const selected = themes[name];
+            if (!selected) return;
+            const iframe = document.getElementById('myIframe');
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDoc && iframeDoc.documentElement) {
+                    iframeDoc.documentElement.style.setProperty('--theme', selected.theme);
+                    iframeDoc.documentElement.style.setProperty('--badge', selected.badge);
+                }
+            } catch (e) { /* cross-origin guard */ }
+        }
 
         document.querySelectorAll('input[name="theme"]').forEach(radio => {
             radio.addEventListener('change', () => {
-                const selected = themes[radio.value];
-                const iframe = document.getElementById('myIframe');
-                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
-                if (iframeDoc) {
-                    const root = iframeDoc.documentElement;
-                    root.style.setProperty('--theme', selected.theme);
-                    root.style.setProperty('--badge', selected.badge);
-                }
+                localStorage.setItem('resumeColor', radio.value);
+                if (colorNameEl) colorNameEl.textContent = radio.value;
+                applyResumeColor(radio.value);
             });
         });
+
+        const cvIframe = document.getElementById('myIframe');
+        if (cvIframe) {
+            cvIframe.addEventListener('load', () => applyResumeColor(localStorage.getItem('resumeColor') || 'green'));
+        }
     </script>
     <script>
         if (theme) {
@@ -510,13 +817,6 @@
                 document.documentElement.classList.remove("dark")
             }
         })
-        function changeimg(img) {
-            console.log("clicked")
-            document.getElementById("modalimg").src = "projects/" + img
-            let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('exampleModal'))
-            modal.show();
-        }
-
     </script>
     <script>
         function printIframeContent() {
@@ -530,6 +830,11 @@
                 alert("Iframe not loaded yet or inaccessible due to cross-origin policy.");
             }
         }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, once: true, offset: 60 });
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 

@@ -21,6 +21,9 @@
   <meta name="twitter:image" content="https://keval9098.github.io/images/keval.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="images/keval.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <style>
     .nav-link {
       font-size: x-large;
@@ -163,6 +166,324 @@
     .dark a:focus {
       color: rgb(131, 131, 131);
     }
+
+    /* ===== Home page enhancements ===== */
+    html { scroll-behavior: smooth; }
+
+    .hero {
+      position: relative;
+      padding: 7rem 0 4rem;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.45;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 380px; height: 380px;
+      background: #bdc1ff;
+      top: -80px; left: -100px;
+    }
+
+    .hero::after {
+      width: 320px; height: 320px;
+      background: #ffd6a5;
+      bottom: -100px; right: -80px;
+    }
+
+    .dark .hero::before { background: #4a4ea8; opacity: 0.35; }
+    .dark .hero::after  { background: #8a5a1f; opacity: 0.3; }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.1;
+    }
+
+    .hero .eyebrow {
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: #4a55a8;
+    }
+
+    .dark .hero .eyebrow { color: #9ca5ff; }
+
+    .hero .lead-role {
+      font-size: 1.4rem;
+      color: #5a5a5a;
+      min-height: 2rem;
+    }
+
+    .dark .hero .lead-role { color: #b0b0b0; }
+
+    #role-rotator {
+      color: #4a55a8;
+      font-weight: 600;
+      display: inline-block;
+      transition: opacity .25s ease;
+    }
+
+    .dark #role-rotator { color: #9ca5ff; }
+
+    .hero-avatar {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid rgba(189, 193, 255, 0.6);
+      box-shadow: 0 20px 60px rgba(74, 85, 168, 0.25);
+    }
+
+    .dark .hero-avatar {
+      border-color: rgba(154, 165, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn-cta {
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 600;
+      border: 2px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .btn-cta-primary {
+      background: #4a55a8;
+      color: #fff !important;
+    }
+
+    .btn-cta-primary:hover {
+      background: #3a4490;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(74, 85, 168, 0.3);
+    }
+
+    .btn-cta-outline {
+      background: transparent;
+      border-color: currentColor;
+    }
+
+    .btn-cta-outline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      display: inline-block;
+      position: relative;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 50px; height: 3px;
+      background: #4a55a8;
+      border-radius: 3px;
+    }
+
+    .info-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform .2s ease, box-shadow .2s ease;
+      height: 100%;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .dark .info-card {
+      background: #232323;
+      border-color: rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+    }
+
+    .info-row i {
+      font-size: 1.2rem;
+      color: #4a55a8;
+      width: 24px;
+      text-align: center;
+    }
+
+    .dark .info-row i { color: #9ca5ff; }
+
+    .email-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: #f1f3ff;
+      color: #4a55a8 !important;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .dark .email-chip {
+      background: rgba(154, 165, 255, 0.1);
+      color: #9ca5ff !important;
+    }
+
+    .skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 0.5rem;
+      border-radius: 12px;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-4px) scale(1.08);
+      background: rgba(74, 85, 168, 0.06);
+    }
+
+    .dark .skill:hover { background: rgba(154, 165, 255, 0.08); }
+
+    .skill > span > img,
+    .skill img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .skill-label {
+      font-size: 0.85rem;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .dark .skill-label { color: #b0b0b0; }
+
+    .skill-group-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #777;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .dark .skill-group-title { color: #999; }
+
+    .project-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform .2s ease, box-shadow .2s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      color: inherit;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+    }
+
+    .dark .project-card {
+      background: #232323;
+      border-color: rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .project-card .project-body {
+      padding: 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card .badge-soft {
+      background: #f1f3ff;
+      color: #4a55a8;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      align-self: flex-start;
+      margin-bottom: 0.6rem;
+    }
+
+    .dark .project-card .badge-soft {
+      background: rgba(154, 165, 255, 0.1);
+      color: #9ca5ff;
+    }
+
+    footer.site-footer {
+      margin-top: 5rem;
+      padding: 2.5rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .dark footer.site-footer { border-top-color: rgba(255,255,255,0.08); }
+
+    footer.site-footer .social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin: 0 0.25rem;
+      background: rgba(74, 85, 168, 0.08);
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    footer.site-footer .social a i {
+      font-size: 1.2rem;
+      color: #4a55a8;
+    }
+
+    footer.site-footer .social a:hover {
+      background: rgba(74, 85, 168, 0.18);
+      transform: translateY(-2px);
+    }
+
+    .dark footer.site-footer .social a { background: rgba(154, 165, 255, 0.1); }
+    .dark footer.site-footer .social a i { color: #9ca5ff; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 6rem 1rem 2rem; text-align: center; }
+      .hero .cta-group { justify-content: center; }
+      .hero-avatar { width: 200px; height: 200px; margin: 1.5rem auto 0; }
+    }
   </style>
   <script>
     var theme = localStorage.getItem("theme");
@@ -285,119 +606,134 @@
       </div>
     </div>
   </nav>
-  <div class="px-4 py-1 my-5 text-center">
-    <h1 class="display-5 fw-bold">Keval Kant</h1>
-    <p>I'm creative Python developer</p>
-  </div>
-  <div class="container-fluid">
-    <div class="row ">
-      <div class="col-md-4 mybox">
-        <h3>About me</h3>
-        <p> I am an engineering graduate passionate about web technologies with experties in python language.
-        </p>
-        <p> Apart from being a web developer, I spend most of my time outdoors. I enjoy trekking, visiting hill
-          stations, and cycling.</p>
-      </div>
-      <div class="col-md-4 d-flex my-5 justify-content-center">
-        <img src="images/keval.png" alt="keval kant" max-width="200px" height="200px"
-          style="border-radius: 50%;   box-shadow: 0px 0px 100px 0px rgb(189, 193, 255); object-fit: contain;">
-      </div>
-      <div class="col-md-4 mybox">
-        <h3>Details</h3>
-        <strong>Name:</strong>
-        <p>Keval Kant</p>
-        <strong>Age:</strong>
-        <p>29 years</p>
-        <strong>Email:</strong>
-        <p>
-          <a style="text-decoration: none;" href="mailto: kevalkant9098@gmail.com">kevalkant9098@gmail.com</a>
-        </p>
-        <div class="social">
-          <a href="https://github.com/keval9098">
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-              <path
-                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/kevalkant9098/">
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-              <path
-                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/keval.kant/">
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-              <path
-                d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/sharmakeval/">
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-              <path
-                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-            </svg>
-          </a>
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7" data-aos="fade-right">
+          <p class="eyebrow text-uppercase fw-semibold mb-2">Hi there, I'm</p>
+          <h1 class="fw-bold mb-3">Keval Kant</h1>
+          <p class="lead-role mb-4">
+            A creative <span id="role-rotator">Python developer</span>
+          </p>
+          <p class="mb-4" style="max-width: 540px;">
+            Engineering graduate passionate about building clean, automated, and scalable
+            web applications. I turn ideas into working software.
+          </p>
+          <div class="cta-group d-flex flex-wrap gap-2">
+            <a href="projects.html" class="btn-cta btn-cta-primary"><i class="bi bi-collection"></i> View Projects</a>
+            <a href="resume.html" class="btn-cta btn-cta-outline"><i class="bi bi-file-earmark-text"></i> Resume</a>
+            <a href="#contact" class="btn-cta btn-cta-outline"><i class="bi bi-envelope"></i> Contact</a>
+          </div>
         </div>
-        </p>
+        <div class="col-lg-5 text-center" data-aos="fade-left">
+          <img src="images/keval.png" alt="Keval Kant" class="hero-avatar">
+        </div>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="container">
-    <div class="d-flex justify-content-center">
-      <h2>Skills</h2>
-    </div>
-    <div class="d-md-flex justify-content-center">
-      <div class="d-flex justify-content-center">
-        <a href="https://www.python.org/" class="p-2 skill">
-          <span class="p-2">
-            <img src="images/python.png" alt="python logo">
-          </span>
-        </a>
-        <a href="https://www.djangoproject.com/" class="p-2 skill">
-          <span>
-            <img src="images/dj.png" alt="django logo">
-          </span>
-        </a>
-        <a href="https://flask.palletsprojects.com/en/2.2.x/" class="p-2 skill">
-          <span>
-            <img src="images/flask.png" alt="flask logo">
-          </span>
-        </a>
-        <a href="" class="p-2 skill">
-          <span>
-            <img src="images/html.png" alt="html logo">
-          </span>
-        </a>
+  <section class="container my-5" id="about">
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="info-card">
+          <h3 class="section-title">About me</h3>
+          <p>I am an engineering graduate passionate about web technologies with expertise in the Python language.</p>
+          <p>Apart from being a web developer, I spend most of my time outdoors. I enjoy trekking, visiting hill stations, and cycling.</p>
+        </div>
       </div>
-      <div class="d-flex justify-content-center">
-        <a href="" class="p-2 skill">
-          <span>
-            <img src="images/js.png" alt="javascript logo">
-          </span>
-        </a>
-        <a href="" class="p-2 skill">
-          <span>
-            <img src="images/css.png" alt="css logo">
-          </span>
-        </a>
-        <a href="https://www.kernel.org/" class="p-2 skill">
-          <span>
-            <img src="images/tux.png" alt="tux logo">
-          </span>
-        </a>
-        <a href="https://www.docker.com/" class="p-2 skill">
-          <span>
-            <img src="images/docker.png" alt="docker logo">
-          </span>
-        </a>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="info-card" id="contact">
+          <h3 class="section-title">Details</h3>
+          <div class="info-row"><i class="bi bi-person"></i><span><strong>Name:</strong> Keval Kant</span></div>
+          <div class="info-row"><i class="bi bi-cake2"></i><span><strong>Age:</strong> 29 years</span></div>
+          <div class="info-row"><i class="bi bi-geo-alt"></i><span><strong>Focus:</strong> Python &middot; Django &middot; Automation</span></div>
+          <div class="info-row">
+            <i class="bi bi-envelope"></i>
+            <a class="email-chip" href="mailto:kevalkant9098@gmail.com">
+              <i class="bi bi-envelope-fill"></i> kevalkant9098@gmail.com
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="container my-5" id="skills">
+    <div class="text-center mb-4">
+      <h2 class="section-title">Skills</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="skill-group-title">Languages &amp; Frameworks</div>
+        <div class="row row-cols-2 row-cols-sm-4 g-2">
+          <div class="col"><a href="https://www.python.org/" class="skill" title="Python"><img src="images/python.png" alt="Python"><span class="skill-label">Python</span></a></div>
+          <div class="col"><a href="https://www.djangoproject.com/" class="skill" title="Django"><img src="images/dj.png" alt="Django"><span class="skill-label">Django</span></a></div>
+          <div class="col"><a href="https://flask.palletsprojects.com/" class="skill" title="Flask"><img src="images/flask.png" alt="Flask"><span class="skill-label">Flask</span></a></div>
+          <div class="col"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" class="skill" title="JavaScript"><img src="images/js.png" alt="JavaScript"><span class="skill-label">JavaScript</span></a></div>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-group-title">Web &amp; Tools</div>
+        <div class="row row-cols-2 row-cols-sm-4 g-2">
+          <div class="col"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" class="skill" title="HTML"><img src="images/html.png" alt="HTML"><span class="skill-label">HTML</span></a></div>
+          <div class="col"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" class="skill" title="CSS"><img src="images/css.png" alt="CSS"><span class="skill-label">CSS</span></a></div>
+          <div class="col"><a href="https://www.kernel.org/" class="skill" title="Linux"><img src="images/tux.png" alt="Linux"><span class="skill-label">Linux</span></a></div>
+          <div class="col"><a href="https://www.docker.com/" class="skill" title="Docker"><img src="images/docker.png" alt="Docker"><span class="skill-label">Docker</span></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5" id="featured">
+    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4 gap-2">
+      <h2 class="section-title mb-0">Featured Projects</h2>
+      <a href="projects.html" class="btn-cta btn-cta-outline">See all <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <a href="projects.html" class="project-card">
+          <img src="projects/netapp.png" alt="NetApp Autoreport Tool screenshot">
+          <div class="project-body">
+            <span class="badge-soft">Automation · Django</span>
+            <h5 class="fw-bold">NetApp Autoreport Tool</h5>
+            <p class="mb-0">Internal Django tool for automated report generation with Celery-driven background tasks and email delivery.</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <a href="projects.html" class="project-card">
+          <img src="projects/dart.png" alt="Dart Automation screenshot">
+          <div class="project-body">
+            <span class="badge-soft">Automation · Django</span>
+            <h5 class="fw-bold">Dart Automation</h5>
+            <p class="mb-0">Automated hardware/VM test execution with form-driven configuration and asynchronous test runs.</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="projects.html" class="project-card">
+          <img src="projects/sales.png" alt="Sales Report Dashboard screenshot">
+          <div class="project-body">
+            <span class="badge-soft">Analytics Dashboard</span>
+            <h5 class="fw-bold">Sales Report Dashboard</h5>
+            <p class="mb-0">Multi-language analytics dashboard for a South African firm with filtering, catalog, and email quotes.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social mb-3">
+        <a href="https://github.com/keval9098" aria-label="GitHub" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/kevalkant9098/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.facebook.com/keval.kant/" aria-label="Facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/sharmakeval/" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+      </div>
+      <p class="mb-0">&copy; <span id="year"></span> Keval Kant. Built with care.</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -424,6 +760,26 @@
       }
     })
 
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 80 });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const roles = ["Python developer", "Django enthusiast", "Automation engineer", "Linux & Docker user"];
+    const rotator = document.getElementById('role-rotator');
+    if (rotator) {
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % roles.length;
+        rotator.style.opacity = 0;
+        setTimeout(() => {
+          rotator.textContent = roles[idx];
+          rotator.style.opacity = 1;
+        }, 250);
+      }, 2500);
+    }
   </script>
 </body>
 
