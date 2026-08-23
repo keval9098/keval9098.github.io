@@ -33,8 +33,13 @@
             padding: 5px 8px;
             background-color: var(--badge);
             border-radius: 10px;
-            margin-right: 8px;
             font-weight: bold;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
         }
 
         body {
@@ -90,7 +95,15 @@
         .company {
             color: var(--theme);
         }
-        
+
+        .badge img {
+            vertical-align: middle;
+            height: 16px;
+        }
+
+        .text-right img {
+            vertical-align: middle;
+        }
     </style>
 </head>
 
@@ -101,12 +114,11 @@
                 <div class="name">Keval Kant</div>
                 <div class="title">Python Developer</div>
             </div>
-            <div>
-                <a href="tel:+919882364777" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                        height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-                    </svg>+919882364777</a>
+            <div class="text-right">
+                <div style="margin-bottom: 7px;"><a style="margin-bottom: 5px;" href="tel:+919882364777"
+                        target="_blank">+919882364777 <img src="svg/phone.svg" alt="" height="16px"></a></div>
+                <a href="mailto:kevalkant9098@gmail.com" target="_blank">kevalkant9098@gmail.com <img
+                        src="svg/gmail.svg" alt="" height="18px"></a>
             </div>
 
         </div>
@@ -123,47 +135,52 @@
                             </svg>
                             keval9098.github.io</a></td>
 
-                    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                        </svg>Distt Mandi HP, India</td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.linkedin.com/in/kevalkant9098/" target="_blank">
+
+                    <td><a href="https://www.linkedin.com/in/kevalkant/" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-linkedin" viewBox="0 0 16 16">
                                 <path
                                     d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                            </svg>linkedin.com/in/kevalkant9098</a></td>
-                    <td><a href="mailto:kevalkant9098@gmail.com" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
-                                <path
-                                    d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
-                            </svg>kevalkant9098@gmail.com</a></td>
+                            </svg>linkedin.com/in/kevalkant</a></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                        </svg>Bangalore, India</td>
+                </tr>
+                <tr>
+
+
                 </tr>
             </tbody>
         </table>
+
         <div>
             <h2 style="margin-top: 5px;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                     fill="currentColor" class="bi bi-openai" viewBox="0 0 16 16">
                     <path
                         d="M14.949 6.547a3.94 3.94 0 0 0-.348-3.273 4.11 4.11 0 0 0-4.4-1.934A4.1 4.1 0 0 0 8.423.2 4.15 4.15 0 0 0 6.305.086a4.1 4.1 0 0 0-1.891.948 4.04 4.04 0 0 0-1.158 1.753 4.1 4.1 0 0 0-1.563.679A4 4 0 0 0 .554 4.72a3.99 3.99 0 0 0 .502 4.731 3.94 3.94 0 0 0 .346 3.274 4.11 4.11 0 0 0 4.402 1.933c.382.425.852.764 1.377.995.526.231 1.095.35 1.67.346 1.78.002 3.358-1.132 3.901-2.804a4.1 4.1 0 0 0 1.563-.68 4 4 0 0 0 1.14-1.253 3.99 3.99 0 0 0-.506-4.716m-6.097 8.406a3.05 3.05 0 0 1-1.945-.694l.096-.054 3.23-1.838a.53.53 0 0 0 .265-.455v-4.49l1.366.778q.02.011.025.035v3.722c-.003 1.653-1.361 2.992-3.037 2.996m-6.53-2.75a2.95 2.95 0 0 1-.36-2.01l.095.057L5.29 12.09a.53.53 0 0 0 .527 0l3.949-2.246v1.555a.05.05 0 0 1-.022.041L6.473 13.3c-1.454.826-3.311.335-4.15-1.098m-.85-6.94A3.02 3.02 0 0 1 3.07 3.949v3.785a.51.51 0 0 0 .262.451l3.93 2.237-1.366.779a.05.05 0 0 1-.048 0L2.585 9.342a2.98 2.98 0 0 1-1.113-4.094zm11.216 2.571L8.747 5.576l1.362-.776a.05.05 0 0 1 .048 0l3.265 1.86a3 3 0 0 1 1.173 1.207 2.96 2.96 0 0 1-.27 3.2 3.05 3.05 0 0 1-1.36.997V8.279a.52.52 0 0 0-.276-.445m1.36-2.015-.097-.057-3.226-1.855a.53.53 0 0 0-.53 0L6.249 6.153V4.598a.04.04 0 0 1 .019-.04L9.533 2.7a3.07 3.07 0 0 1 3.257.139c.474.325.843.778 1.066 1.303.223.526.289 1.103.191 1.664zM5.503 8.575 4.139 7.8a.05.05 0 0 1-.026-.037V4.049c0-.57.166-1.127.476-1.607s.752-.864 1.275-1.105a3.08 3.08 0 0 1 3.234.41l-.096.054-3.23 1.838a.53.53 0 0 0-.265.455zm.742-1.577 1.758-1 1.762 1v2l-1.755 1-1.762-1z" />
                 </svg>Area of expertise</h2>
-            <span class="badge">Python</span>
-            <span class="badge">Django</span>
-            <span class="badge">Flask</span>
-            <span class="badge">Pytest</span>
-            <span class="badge">React</span>
-            <span class="badge">Linux</span>
-            <span class="badge">SQL</span>
-            <span class="badge">Docker</span>
-            <span class="badge">AI/ML</span>
-            <span class="badge">RAG</span>
-            <!-- <span class="badge">LangChain</span> -->
+            <div class="row">
+
+
+                <span class="badge"><img src="svg/python.svg" alt="Python" /> Python</span>
+                <span class="badge"><img src="svg/django.svg" alt="Django" /> Django</span>
+                <span class="badge"><img src="svg/flask.svg" alt="Flask" /> Flask</span>
+                <!-- <span class="badge"><img src="svg/react.svg" alt="React" /> React</span> -->
+                <span class="badge">FastAPI</span>
+                <span class="badge"><img src="svg/linux.svg" alt="Linux" /> Linux</span>
+                <span class="badge"><img src="svg/docker.svg" alt="Docker" /> Docker</span>
+                <span class="badge">SQL</span>
+                <span class="badge">AI/ML</span>
+                <span class="badge">Agentic AI</span>
+                <span class="badge">Prompt Eng</span>
+                <span class="badge">RAG</span>
+                <span class="badge"><img src="svg/langchain.svg" alt=""> LangChain</span>
+                <span class="badge">LangGraph</span>
+                <span class="badge">LoRA</span>
+                <span class="badge">QLoRA</span>
+            </div>
         </div>
         <div>
             <h2 style="margin-bottom: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
@@ -178,14 +195,23 @@
                 <div class="fw-bold large">Software Engineer</div>
                 <div class="date">Oct,23 - Present</div>
             </div>
-            <div class="company">NetApp, Payroll - Mindteck</div>
-            <div class="fw-bold">Achievements/Projects:</div>
+            <div class="company"><a href="https://www.netapp.com/">NetApp</a> (Payroll - <a
+                    href="https://www.mindteck.com/" target="_blank">Mindteck</a>)</div>
+            <!-- <div class="fw-bold">Achievements/Projects:</div> -->
             <ol>
+                <li><b>Auto Test Pilot</b>
+                    <ul>
+                        <li>Complete end to end solution for automated testing.</li>
+                        <li>Includes test scenario generation, test case generation, and test execution.</li>
+                        <li>Agentic workflow for automated generation based on langGraph.</li>
+                    </ul>
+                </li>
                 <li><b>Code Review</b>
                     <ul>
                         <li>Automatic code review using openai (gpt). Follows internal 5S QA standard (style,
                             structure, syntax, security, scalability)</li>
-                        <li>Review pytest script code on basis of 20 checkpoints including python best practices and docstrings
+                        <li>Review pytest script code on basis of 20 checkpoints including python best practices and
+                            docstrings
                             formats.</li>
                         <li>Integrated with build process and perforce.</li>
                         <li>Analytical dashboard for Admins/Managers/Users which shows different metrics to evaluate
@@ -203,9 +229,15 @@
                 <li><b>Auto Report</b>
                     <ul>
                         <li>Built email-based report generation tools for managers.</li>
-                        <li>Delivered two versions: one using OpenAI, another using LLaMA 3.1 (self-hosted).</li>
+                        <li>Delivered two versions: one using OpenAI, another using LLaMA 3.1 and Mistral 7B (self-hosted).</li>
                     </ul>
                 </li>
+                <!-- <li><b>Auto Report</b>
+                    <ul>
+                        <li>Built email-based report generation tools for managers.</li>
+                        <li>Delivered two versions: one using OpenAI, another using LLaMA 3.1 (self-hosted).</li>
+                    </ul>
+                </li> -->
             </ol>
 
             <div class="d-flex justify-content-between">
@@ -213,7 +245,7 @@
                 <div class="date">May,20 - Sep-23</div>
             </div>
             <div class="company">Fiverr/Upwork</div>
-            <div class="fw-bold">Achievements:</div>
+            <!-- <div class="fw-bold">Achievements:</div> -->
             <ul>
                 <li>Developed 20+ full stack applications using django/React for clients.</li>
                 <li>Deployed more than 100 python applications on servers like AWS, GCP, digital ocean, Linode, heroku
@@ -221,7 +253,7 @@
                 <li>Successfully completed 350+ orders with excellent client feedback.</li>
             </ul>
             <div class="d-flex" style="width: 100%;">
-                <div style="width: 50%; margin-right: 20px;">
+                <div style="width: 55%; margin-right: 20px;">
                     <h2 style="margin-bottom: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                             fill="currentColor" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
                             <path
@@ -232,23 +264,23 @@
                     <hr>
                     <div class="d-flex justify-content-between">
                         <div class="fw-bold large">Btech ECE</div>
-                        <div class="date">07/14 - 07/18</div>
+                        <div class="date">Aug 14 - Jul 18</div>
                     </div>
                     <div>Jawaharlal Nehru Government Engineering College Sundernagar HP</div>
                     <br>
                     <div class="d-flex justify-content-between">
                         <div class="fw-bold large">12th</div>
-                        <div class="date">04/12 - 03/13</div>
+                        <div class="date">Apr 12 - Mar 13</div>
                     </div>
                     <div>King George Royal Public School Nerchowk HP</div>
-                    <br>
+                    <!-- <br>
                     <div class="d-flex justify-content-between">
                         <div class="fw-bold large">10th</div>
                         <div class="date">04/10 - 03/11</div>
                     </div>
-                    <div>King George Royal Public School Nerchowk HP</div>
+                    <div>King George Royal Public School Nerchowk HP</div> -->
                 </div>
-                <div style="width: 50%;">
+                <div style="width: 45%;">
                     <h2 style="margin-bottom: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                             fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
                             <path
@@ -257,8 +289,10 @@
                     <hr>
                     Nature Trails, Trekking, Reading, Artificial Intelligence. Tech-savvy, people-friendly, and driven
                     to create impact.
+                    <p><b>English</b> (Full professional proficiency)</p>
+                    <p><b>Hindi</b> (Native or bilingual proficiency)</p>
 
-                    <h2 style="margin-bottom: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                    <!-- <h2 style="margin-bottom: 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                             fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
                             <path
                                 d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z" />
@@ -267,7 +301,7 @@
                         </svg>Languages</h2>
                     <hr>
                     <p><b>English</b> (Full professional proficiency)</p>
-                    <p><b>Hindi</b> (Native or bilingual proficiency)</p>
+                    <p><b>Hindi</b> (Native or bilingual proficiency)</p> -->
                 </div>
             </div>
         </div>
